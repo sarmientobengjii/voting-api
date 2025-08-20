@@ -6,11 +6,47 @@ const pollSchema = new Schema(
       type: String,
       required: true,
     },
-    // Add other fields
+    
+    options: {
+      type: [String],
+      required: true,
+    },
+
+    status: {
+      type: String,
+      required: false,
+      enum: ['active', 'inactive', 'archived'],
+      default: 'active',
+    },
   },
   {
-    timestamps: true,
+    timestamps: { createAt: true, updatedAt: true },
+  }
+);
+
+const voteSchema = new Schema(
+  {
+    pollId: {
+      type: ObjectId,
+      required: true,
+    },
+
+    options: {
+      type: String,
+      required: required,
+    },
+
+    voter: {
+      type: String,
+      requred: false,
+      enum: ['email', 'ipAdress', 'userId'],
+      default: 'userId',
+    },
+  },
+  {
+    timestamps: { createAt: true, updatedAt: true },
   }
 );
 
 export const Poll = model('Poll', pollSchema);
+export const Vote = model('Vote', voteSchema);
