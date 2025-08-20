@@ -1,49 +1,27 @@
 import { model, Schema } from 'mongoose';
 
-const votesSchema = new Schema(
+const voteSchema = new Schema(
   {
     pollId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Poll',
+      type: ObjectId,
       required: true,
     },
 
-    options: {
-      type: [String],
+    option: {
+      type: String,
       required: true,
     },
 
-    status: {
+    voter: {
       type: String,
-      required: false,
-      enum: ['active', 'inactive', 'archived'],
-      default: 'active',
-    },
-
-    email: {
-      type: String,
-      ref: 'email',
-      required: false,
-      default: 'userId',
-    },
-
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'userId',
-      required: false,
-      default: 'userId',
-    },
-
-    ipAddress: {
-      type: String,
-      ref: 'ipAddress',
-      required: false,
-      default: 'userId',
+      requred: false,
+      enum: ['email', 'IP', 'user ID'],
+      default: 'user ID',
     },
   },
   {
     timestamps: { createdAt: true, updatedAt: true },
-  },
+  }
 );
 
-export const Votes = model('Votes', votesSchema);
+export const Vote = model('Vote', voteSchema);

@@ -18,7 +18,7 @@ POST http://localhost:3000/api/v1/votes
 Content-Type: application/json
 
 {
-  "pollId": "68a588f6032a0e5c2d4c9b11",
+  "pollId": "PASTE_VALID_ID_HERE",
   "option": "react",
   "voter": "narda@example.com"
 }

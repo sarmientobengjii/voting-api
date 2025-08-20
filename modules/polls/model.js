@@ -24,29 +24,5 @@ const pollSchema = new Schema(
   }
 );
 
-const voteSchema = new Schema(
-  {
-    pollId: {
-      type: Schema.Types.ObjectId,
-      required: true,
-    },
-
-    options: {
-      type: String,
-      required: true,
-    },
-
-    voter: {
-      type: String,
-      requred: false,
-      enum: ['email', 'ipAddress', 'userId'],
-      default: 'userId',
-    },
-  },
-  {
-    timestamps: { createdAt: true, updatedAt: true },
-  }
-);
-
 export const Poll = model('Poll', pollSchema);
-export const Vote = model('Vote', voteSchema);
+

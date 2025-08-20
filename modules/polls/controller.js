@@ -46,9 +46,9 @@ export async function getOne(req, res) {
   if (!pollId) {
     return res.status(404).json({ error: 'Poll not found' });
   }
-  
+
   return res.json({
     success: 'Successfully get one poll',
-    data: {poll}, // Replace with actual poll data
+    data: poll, // Replace with actual poll data
   });
 }
