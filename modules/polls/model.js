@@ -39,7 +39,7 @@ const voteSchema = new Schema(
     voter: {
       type: String,
       requred: false,
-      enum: ['email', 'ipAdress', 'userId'],
+      enum: ['email', 'ipAddress', 'userId'],
       default: 'userId',
     },
   },

@@ -39,12 +39,15 @@ export async function create(req, res) {
 export async function getOne(req, res) {
   // FIND poll from req.params
   const pollId = req.params.id;
-  // IF NON then response 404
-  res.status(404).json({
-    error: 'Poll not found',
-  });
-  // OTHERWISE response the poll
-  res.json({
+
+  const poll = await Poll.findById(pollId);
+
+    // IF NON then response 404
+  if (!poll) {
+    return res.status(404).json({ error: 'Poll not found' });
+  }
+  
+  return res.json({
     success: 'Successfully get one poll',
     data: {}, // Replace with actual poll data
   });

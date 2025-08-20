@@ -34,9 +34,9 @@ const votesSchema = new Schema(
       default: 'userId',
     },
 
-    ipAdress: {
+    ipAddress: {
       type: String,
-      ref: 'ipAdress',
+      ref: 'ipAddress',
       required: false,
       default: 'userId',
     },

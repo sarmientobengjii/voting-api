@@ -5,6 +5,6 @@ const router = new Router();
 
 router.get('/', getAll);
 router.post('/', create);
-router.get('/:id', getOne);
+router.get('/polls/:id', getOne);
 
 export default router;
