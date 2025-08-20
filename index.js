@@ -15,6 +15,7 @@ try {
 }
 
 app.use(bodyParser.json());
+app.use(express.json());
 app.set('port', PORT);
 
 app.use('/api/v1/polls', pollRoutes);

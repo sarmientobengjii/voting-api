@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { create, getAll, getOne } from './controller.js';
+import { getAll, create, getOne } from './controller.js';
 
 const router = new Router();
 
 router.get('/', getAll);
 router.post('/', create);
-router.get('/polls/:id', getOne);
+router.get('/:id', getOne);
 
 export default router;

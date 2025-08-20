@@ -24,7 +24,7 @@ export async function create(req, res) {
   } catch (error) {
     res.status(400).json({
       error: 'Failed to create poll',
-      details: error.message,
+      details: error,
     });
     return;
   }
@@ -43,12 +43,12 @@ export async function getOne(req, res) {
   const poll = await Poll.findById(pollId);
 
     // IF NON then response 404
-  if (!poll) {
+  if (!pollId) {
     return res.status(404).json({ error: 'Poll not found' });
   }
   
   return res.json({
     success: 'Successfully get one poll',
-    data: {}, // Replace with actual poll data
+    data: {poll}, // Replace with actual poll data
   });
 }
