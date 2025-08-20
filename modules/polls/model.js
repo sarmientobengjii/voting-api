@@ -20,20 +20,20 @@ const pollSchema = new Schema(
     },
   },
   {
-    timestamps: { createAt: true, updatedAt: true },
+    timestamps: { createdAt: true, updatedAt: true },
   }
 );
 
 const voteSchema = new Schema(
   {
     pollId: {
-      type: ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
     },
 
     options: {
       type: String,
-      required: required,
+      required: true,
     },
 
     voter: {
@@ -44,7 +44,7 @@ const voteSchema = new Schema(
     },
   },
   {
-    timestamps: { createAt: true, updatedAt: true },
+    timestamps: { createdAt: true, updatedAt: true },
   }
 );
 
